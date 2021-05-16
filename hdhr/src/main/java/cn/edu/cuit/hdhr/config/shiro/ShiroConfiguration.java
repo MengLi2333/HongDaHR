@@ -29,9 +29,6 @@ public class ShiroConfiguration {
         return factoryBean;
     }
 
-    /**
-     * 下面的代码是添加注解支持
-     */
     @Bean
     @DependsOn("lifecycleBeanPostProcessor")
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
