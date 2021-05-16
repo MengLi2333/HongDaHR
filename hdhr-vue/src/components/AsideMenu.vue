@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="asideMenu">
     <el-menu style="height: 100%" router>
-      <el-menu-item index="personalInfo">
+      <el-menu-item index="personalInfo.html">
         <span>个人信息管理</span>
       </el-menu-item>
       <el-menu-item>
@@ -44,7 +44,7 @@
 </script>
 
 <style scoped>
-  #app {
+  #asideMenu {
     height: 100%;
   }
 </style>
