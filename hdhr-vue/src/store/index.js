@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import mutationsType from '../network/mutations-type.js'
+import mutationsType from './mutations-type.js'
 
 Vue.use(Vuex)
 
@@ -46,6 +46,25 @@ export default new Vuex.Store({
       state.emp.regType = emp.regType
       state.emp.status = emp.status
       state.emp.isLogin = true
+    },
+    [mutationsType.DEL_EMP](state) {
+      state.emp.empID = 0
+      state.emp.deptID = 0
+      state.emp.titleID = 0
+      state.emp.postID = 0
+      state.emp.empName = ""
+      state.emp.empCode = ""
+      state.emp.gender = 0
+      state.emp.idCardCode = ""
+      state.emp.birthday = ""
+      state.emp.nativePlace = ""
+      state.emp.eduLevel = 0
+      state.emp.nation = 0
+      state.emp.party = 0
+      state.emp.health = 0
+      state.emp.regType = 0
+      state.emp.status = 0
+      state.emp.isLogin = false
     }
   },
   actions: {

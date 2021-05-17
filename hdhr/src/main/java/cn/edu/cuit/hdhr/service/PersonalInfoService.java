@@ -8,4 +8,6 @@ import java.util.ArrayList;
 public interface PersonalInfoService {
     Emp getEmpByEmpCode(String empCode);
     ArrayList<Role> getRolesByEmpCode(String empCode);
+    Integer updEmpByEmpID(Emp emp);
+    Emp getEmpByEmpID(Long empID);
 }

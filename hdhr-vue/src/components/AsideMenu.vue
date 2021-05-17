@@ -1,7 +1,7 @@
 <template>
   <div id="asideMenu">
     <el-menu style="height: 100%" router>
-      <el-menu-item index="personalInfo.html">
+      <el-menu-item :index="$store.state.emp.isLogin ? 'personalInfo.html' : 'login.html'">
         <span>个人信息管理</span>
       </el-menu-item>
       <el-menu-item>

@@ -28,4 +28,14 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     public ArrayList<Role> getRolesByEmpCode(String empCode) {
         return personalInfoMapper.selectRolesByEmpCode(empCode);
     }
+
+    @Override
+    public Integer updEmpByEmpID(Emp emp) {
+        return personalInfoMapper.updEmpByEmpID(emp);
+    }
+
+    @Override
+    public Emp getEmpByEmpID(Long empID) {
+        return personalInfoMapper.selectEmpByEmpID(empID);
+    }
 }

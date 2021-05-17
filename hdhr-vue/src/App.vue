@@ -9,7 +9,7 @@
           <aside-menu></aside-menu>
         </el-aside>
         <el-main id="main">
-          <keep-alive><router-view/></keep-alive>
+          <router-view/>
         </el-main>
       </el-container>
     </el-container>

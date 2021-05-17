@@ -18,15 +18,17 @@ export function request(options) {
 }
 
 export function handleResult(res, _this, onSuccess) {
-  console.log(2); // FIXME
+  console.log("handleResult"); // FIXME
   if (res.data.status === 200) {
-    _this.$message.success('登录成功')
-    onSuccess(_this)
+    _this.$message.success('操作成功')
+    if (onSuccess !== undefined) {
+      onSuccess()
+    }
   } else {
     if (res.data.msg !== null) {
-      _this.$message.error('登录失败,', res.data.msg)
+      _this.$message.error('操作失败, ' + res.data.msg)
     } else {
-      _this.$message.error('登录失败, 服务器繁忙')
+      _this.$message.error('操作失败, 服务器繁忙')
     }
   }
 }

@@ -15,6 +15,33 @@
       )
   </select>
 
+  <update id="updEmpByEmpID" parameterType="cn.edu.cuit.hdhr.entity.Emp">
+    update t_emp
+    <trim prefix="set" suffixOverrides=",">
+      <if test="deptID != null">N_DEPT_ID = #{deptID},</if>
+      <if test="titleID != null">N_TITLE_ID = #{titleID},</if>
+      <if test="postID != null">N_POST_ID = #{postID},</if>
+      <if test="empName != null">VC_EMP_NAME = #{empName},</if>
+      <if test="empCode != null">VC_EMP_CODE = #{empCode},</if>
+      <if test="gender != null">N_GENDER = #{gender},</if>
+      <if test="idCardCode != null">VC_IDCARD_CODE = #{idCardCode},</if>
+      <if test="birthday != null">D_BIRTHDAY = #{birthday},</if>
+      <if test="nativePlace != null">VC_NATIVE_PLACE = #{nativePlace},</if>
+      <if test="eduLevel != null">N_EDU_LEVEL = #{eduLevel},</if>
+      <if test="nation != null">N_NATION = #{nation},</if>
+      <if test="party != null">N_PARTY = #{party},</if>
+      <if test="health != null">N_HEALTH = #{health},</if>
+      <if test="regType != null">N_REG_TYPE = #{regType},</if>
+      <if test="status != null">N_STATUS = #{status},</if>
+      <if test="password != null">VC_PASSWORD = #{password},</if>
+    </trim>
+    where N_EMP_ID = #{empID}
+  </update>
+
+  <select id="selectEmpByEmpID" parameterType="long" resultMap="empResult">
+    select * from t_emp where N_EMP_ID = #{empID};
+  </select>
+
   <resultMap id="empResult" type="cn.edu.cuit.hdhr.entity.Emp">
     <id property="empID" column="n_emp_id"/>
     <result property="deptID" column="n_dept_id"/>

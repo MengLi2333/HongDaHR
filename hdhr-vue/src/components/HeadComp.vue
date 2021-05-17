@@ -6,7 +6,7 @@
     </div>
     <div id="rightDiv">
       <label for="empBtn">
-        <span style="user-select: none">{{$store.state.emp.isLogin ? $store.state.emp.empCode : "未登录"}}</span>
+        <span style="user-select: none">{{$store.state.emp.isLogin ? $store.state.emp.empName : "未登录"}}</span>
         <el-button type="primary" circle style="margin-left: 20px" id="empBtn" @click="empBtnClick">
           <i class="el-icon-user-solid"></i>
         </el-button>

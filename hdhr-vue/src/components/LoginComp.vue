@@ -22,7 +22,7 @@
 
 <script>
   import {request, handleResult} from '../network/request.js'
-  import mutationsType from '../network/mutations-type.js'
+  import mutationsType from '../store/mutations-type.js'
 
   export default {
     name: "LoginComp",
@@ -54,7 +54,7 @@
               url: '/personalInfo/login',
               method: 'post',
               data: _this.frm
-            }).then(res => handleResult(res, this, function(_this) {
+            }).then(res => handleResult(res, this, function() {
               _this.$router.replace('/personalInfo.html')
               _this.$store.commit(mutationsType.SET_EMP, res.data.data) // TODO
             })).catch(err => {
