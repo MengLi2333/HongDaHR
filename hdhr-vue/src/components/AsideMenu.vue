@@ -30,7 +30,7 @@
           <span>员工信息统计</span>
         </el-menu-item>
       </el-submenu>
-      <el-menu-item>
+      <el-menu-item index="dept.html">
         <span>组织机构管理</span>
       </el-menu-item>
     </el-menu>

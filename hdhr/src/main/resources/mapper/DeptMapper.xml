@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.cuit.hdhr.mapper.DeptMapper">
+
+  <select id="selectDeptForestByPID" parameterType="long" resultMap="deptForestResult">
+    select N_DEPT_ID, VC_DEPT_NAME from t_dept where N_PARENT_ID = #{parentID};
+  </select>
+
+  <select id="selectDeptByDeptID" parameterType="long" resultMap="deptResult">
+    select * from t_dept where N_DEPT_ID = #{deptID};
+  </select>
+
+  <insert id="addChildByDeptID">
+#     TODO
+  </insert>
+
+  <resultMap id="deptForestResult" type="cn.edu.cuit.hdhr.entity.DeptTree">
+    <id column="N_DEPT_ID" property="deptID"/>
+    <result column="VC_DEPT_NAME" property="deptName"/>
+    <collection property="subDepts" javaType="java.util.ArrayList" ofType="cn.edu.cuit.hdhr.entity.DeptTree"
+                column="N_DEPT_ID" select="selectDeptForestByPID"/>
+  </resultMap>
+
+  <resultMap id="deptResult" type="cn.edu.cuit.hdhr.entity.Dept">
+    <id property="deptID" column="N_DEPT_ID"/>
+    <result property="deptName" column="VC_DEPT_NAME"/>
+    <result property="deptCode" column="VC_DEPT_CODE"/>
+    <result property="deptType" column="N_DEPT_TYPE"/>
+    <result property="parentID" column="N_PARENT_ID"/>
+    <result property="location" column="VC_LOCATION"/>
+    <result property="postCode" column="VC_POST_CODE"/>
+    <result property="telephone" column="VC_TELEPHONE"/>
+    <result property="fax" column="VC_FAX"/>
+    <result property="mail" column="VC_MAIL"/>
+    <result property="isRemoved" column="N_IS_REMOVED"/>
+    <result property="removeDate" column="D_REMOVE_DATE"/>
+  </resultMap>
+</mapper>
