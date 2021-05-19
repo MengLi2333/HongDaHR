@@ -25,8 +25,8 @@ public class GlobalExceptionHandler {
         return Result.fail(HttpStatus.BAD_REQUEST.value(), "请求参数异常");
     }
 
-    @ExceptionHandler(Exception.class)
-    public Result handleUnexpected(Exception e) { // status: 400
-        return Result.fail(HttpStatus.BAD_REQUEST.value(), null);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public Result handleUnexpected(Exception e) { // status: 400
+//        return Result.fail(HttpStatus.BAD_REQUEST.value(), "UnexpectedException");
+//    }
 }

@@ -12,5 +12,8 @@ import java.util.List;
 public interface DeptMapper {
     List<DeptTree> selectDeptForestByPID(Long parentID);
     Dept selectDeptByDeptID(Long deptID);
-    Integer addChildByDeptID(Long parentDeptID, Dept child);
+    Integer insertDept(Dept dept);
+    Integer updateDeptIgnoreNull(Dept dept);
+    Integer updateDept(Dept dept);
+    Integer deleteDept(Long deptID);
 }

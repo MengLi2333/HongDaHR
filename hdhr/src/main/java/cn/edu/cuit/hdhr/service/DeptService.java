@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface DeptService {
     List<DeptTree> getDeptForest();
-
     Dept getDeptByDeptID(Long deptID);
+    Integer addDept(Dept dept);
+    Integer updateDeptIgnoreNull(Dept dept);
+    Integer deleteDept(Long deptID);
+    Integer removeDept(Long deptID);
+    Integer rejoinDept(Long deptID);
+    Integer resetDept(Long deptID, Long parentID);
 }

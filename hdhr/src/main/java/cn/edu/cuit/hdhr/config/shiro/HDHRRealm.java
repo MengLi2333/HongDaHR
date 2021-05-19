@@ -1,6 +1,5 @@
 package cn.edu.cuit.hdhr.config.shiro;
 
-import cn.edu.cuit.hdhr.common.BusinessException;
 import cn.edu.cuit.hdhr.entity.Emp;
 import cn.edu.cuit.hdhr.entity.Role;
 import cn.edu.cuit.hdhr.service.PersonalInfoService;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Component

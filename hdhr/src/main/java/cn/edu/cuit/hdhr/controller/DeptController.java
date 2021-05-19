@@ -32,10 +32,46 @@ public class DeptController {
         return Result.succ(deptService.getDeptByDeptID(deptID));
     }
 
-    @RequestMapping("/addChild")
+    @RequestMapping("/addDept")
     @RequiresRoles("HRDeptManager")
-    public Result addChild(Long parentDeptID, Dept child) {
-        // TODO
+    public Result addChild(Dept dept) {
+        deptService.addDept(dept);
+        return Result.succ(null);
+    }
+
+    @RequestMapping("/updateDept")
+    @RequiresRoles("HRDeptManager")
+    public Result updateDept(Dept dept) {
+        deptService.updateDeptIgnoreNull(dept);
+        return Result.succ(null);
+    }
+
+    @RequestMapping("/deleteDept")
+    @RequiresRoles("HRDeptManager")
+    public Result deleteDept(Long deptID) {
+        deptService.deleteDept(deptID);
+        return Result.succ(null);
+    }
+
+    @RequestMapping("/removeDept")
+    @RequiresRoles("HRDeptManager")
+    public Result removeDept(Long deptID) {
+        deptService.removeDept(deptID);
+        return Result.succ(null);
+    }
+
+    @RequestMapping("/rejoinDept")
+    @RequiresRoles("HRDeptManager")
+    public Result rejoinDept(Long deptID) {
+        deptService.rejoinDept(deptID);
+        return Result.succ(null);
+    }
+
+    @RequestMapping("/resetDept")
+    @RequiresRoles("HRDeptManager")
+    public Result resetDept(Long deptID, Long parentID) {
+        deptService.resetDept(deptID, parentID);
+        return Result.succ(null);
     }
 
 //    public Result addChild(Dept parent, Dept child) { // TODO 测试该类参数如何通过MyBatis完成数据库访问

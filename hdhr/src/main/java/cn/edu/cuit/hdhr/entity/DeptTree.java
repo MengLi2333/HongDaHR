@@ -9,5 +9,6 @@ import java.util.List;
 public class DeptTree implements Serializable {
     private Long DeptID;
     private String deptName;
+    private Long parentID;
     private List<DeptTree> subDepts;
 }

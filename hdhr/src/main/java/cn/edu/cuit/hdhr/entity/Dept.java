@@ -1,6 +1,7 @@
 package cn.edu.cuit.hdhr.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.sql.Date;

@@ -35,7 +35,6 @@ public class PersonalInfoController {
     }
 
     @RequestMapping("/logout")
-    @RequiresAuthentication
     public Result logout() {
         SecurityUtils.getSubject().logout();
         return Result.succ(null);
