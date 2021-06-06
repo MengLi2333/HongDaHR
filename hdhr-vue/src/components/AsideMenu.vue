@@ -12,12 +12,12 @@
       </el-menu-item>
       <el-submenu index="sub">
         <template slot="title">
-          <span>员工信息管理</span>
+          <span >员工信息管理</span>
         </template>
-        <el-menu-item>
+        <el-menu-item index="Onboarding.html">
           <span>员工入职管理</span>
         </el-menu-item>
-        <el-menu-item>
+        <el-menu-item index="EmpInfo.html">
           <span>员工信息维护</span>
         </el-menu-item>
         <el-menu-item>

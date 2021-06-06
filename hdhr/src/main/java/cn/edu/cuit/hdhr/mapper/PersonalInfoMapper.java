@@ -13,5 +13,7 @@ public interface PersonalInfoMapper {
     Emp selectEmpByEmpCode(String empCode);
     Emp selectEmpByEmpID(Long empID);
     ArrayList<Role> selectRolesByEmpCode(String empCode);
+    Integer updEmp(Emp emp);
+
     Integer updEmpByEmpID(Emp emp);
 }

@@ -55,6 +55,7 @@
               method: 'post',
               data: _this.frm
             }).then(res => handleResult(res, this, function() {
+              console.log(res); // FIXME
               _this.$router.replace('/personalInfo.html')
               _this.$store.commit(mutationsType.SET_EMP, res.data.data) // TODO
             })).catch(err => {
