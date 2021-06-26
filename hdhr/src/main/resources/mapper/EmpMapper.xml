@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.cuit.hdhr.mapper.EmpMapper">
+  <insert id="save">
+    call P_INSERT_EMP(#{deptID}, #{titleID}, #{postID}, #{empName},
+    #{gender}, #{idCardCode}, #{birthday}, #{nativePlace}, #{eduLevel}, #{nation}, #{party}, #{health},
+    #{regType}, #{status});
+  </insert>
+
+  <update id="updateEmp">
+      update t_emp set
+      N_DEPT_ID = #{deptID},
+      N_TITLE_ID = #{titleID},
+      N_POST_ID = #{postID},
+      VC_EMP_NAME = #{empName},
+      N_GENDER = #{gender},
+      VC_IDCARD_CODE = #{idCardCode},
+      D_BIRTHDAY = #{birthday},
+      VC_NATIVE_PLACE = #{nativePlace},
+      N_EDU_LEVEL = #{eduLevel},
+      N_NATION = #{nation},
+      N_HEALTH = #{health},
+      N_REG_TYPE = #{regType},
+      N_STATUS = #{status}
+      where N_EMP_ID = #{empID};
+
+  </update>
+
+  <select id="getAllEmp" resultMap="empResult">
+    select * from t_emp
+  </select>
+
+  <delete id="deleteEmpByEmpID">
+    delete from t_emp where N_EMP_ID = #{empID};
+  </delete>
+  <resultMap id="empResult" type="cn.edu.cuit.hdhr.entity.Emp">
+    <id property="empID" column="n_emp_id"/>
+    <result property="deptID" column="n_dept_id"/>
+    <result property="titleID" column="n_title_id"/>
+    <result property="postID" column="n_post_id"/>
+    <result property="empName" column="vc_emp_name"/>
+    <result property="empCode" column="vc_emp_code"/>
+    <result property="gender" column="n_gender"/>
+    <result property="idCardCode" column="vc_idcard_code"/>
+    <result property="birthday" column="d_birthday"/>
+    <result property="nativePlace" column="vc_native_place"/>
+    <result property="eduLevel" column="n_edu_level"/>
+    <result property="nation" column="n_nation"/>
+    <result property="party" column="n_party"/>
+    <result property="health" column="n_health"/>
+    <result property="regType" column="n_reg_type"/>
+    <result property="status" column="n_status"/>
+    <result property="password" column="vc_password"/>
+  </resultMap>
+
+  <select id="getAllDept" resultMap="deptResult">
+    select * from t_dept
+  </select>
+  <resultMap id="deptResult" type="cn.edu.cuit.hdhr.entity.Dept">
+    <id property="deptID" column="N_DEPT_ID"/>
+    <result property="deptName" column="VC_DEPT_NAME"/>
+    <result property="deptCode" column="VC_DEPT_CODE"/>
+    <result property="deptType" column="N_DEPT_TYPE"/>
+    <result property="parentID" column="N_PARENT_ID"/>
+    <result property="location" column="VC_LOCATION"/>
+    <result property="postCode" column="VC_POST_CODE"/>
+    <result property="telephone" column="VC_TELEPHONE"/>
+    <result property="fax" column="VC_FAX"/>
+    <result property="mail" column="VC_MAIL"/>
+    <result property="isRemoved" column="N_IS_REMOVED"/>
+    <result property="removeDate" column="D_REMOVE_DATE"/>
+  </resultMap>
+
+  <select id="getAllPost" resultMap="postResult">
+    select * from t_post
+  </select>
+  <resultMap id="postResult" type="cn.edu.cuit.hdhr.entity.Post">
+    <id property="postID" column="N_POST_ID"/>
+    <result property="postName" column="VC_POST_NAME"/>
+    <result property="parentID" column="N_PARENT_ID"/>
+    <result property="duty" column="VC_DUTY"/>
+    <result property="qualification" column="VC_QUALIFICATION"/>
+    <result property="purview" column="VC_PURVIEW"/>
+    <result property="workContent" column="VC_WORK_CONTENT"/>
+  </resultMap>
+
+  <select id="getAllTitle" resultMap="titleResult">
+    select * from t_title
+  </select>
+  <resultMap id="titleResult" type="cn.edu.cuit.hdhr.entity.Title">
+    <id property="titleID" column="N_TITLE_ID"/>
+    <result property="titleName" column="VC_TITLE_NAME"/>
+    <result property="qualification" column="VC_QUALIFICATION"/>
+    <result property="duty" column="VC_DUTY"/>
+    <result property="workTarget" column="VC_WORK_TARGET"/>
+  </resultMap>
+
+</mapper>
+

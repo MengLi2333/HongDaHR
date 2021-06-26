@@ -1,0 +1,86 @@
+package cn.edu.cuit.hdhr.controller;
+
+import cn.edu.cuit.hdhr.common.Result;
+import cn.edu.cuit.hdhr.entity.Dept;
+import cn.edu.cuit.hdhr.entity.Emp;
+import cn.edu.cuit.hdhr.entity.Post;
+import cn.edu.cuit.hdhr.entity.Title;
+import cn.edu.cuit.hdhr.service.EmpService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.awt.*;
+import java.util.ArrayList;
+
+@RestController
+@RequestMapping("/emp")
+@CrossOrigin(allowCredentials = "true", originPatterns = "http://localhost:*")
+public class EmpController {
+    private EmpService testService;
+
+    @Autowired
+    public EmpController(EmpService testService) {
+        this.testService = testService;
+    }
+
+    @RequestMapping("/save")
+    public Result saveEmp(Emp emp) {
+        testService.save(emp);
+        System.out.println("enter controller");
+        System.out.println("controller");
+        Result succ = Result.succ(null);
+        return succ;
+    }
+
+    @RequestMapping("/getAllEmp")
+    public Result getAllEmp()
+    {
+        ArrayList<Emp> emps = testService.getAllEmp();
+        Result succ = Result.succ(emps);
+        return succ;
+    }
+
+    @RequestMapping("/getAllPost")
+    public Result getAllPost()
+    {
+        ArrayList<Post> posts = testService.getAllPost();
+        Result succ = Result.succ(posts);
+        return succ;
+    }
+
+    @RequestMapping("/getAllTitle")
+    public Result getAllTitle()
+    {
+        ArrayList<Title> titles = testService.getAllTitle();
+        Result succ = Result.succ(titles);
+        return succ;
+    }
+
+    @RequestMapping("/getAllDept")
+    public Result getAllDept()
+    {
+        ArrayList<Dept> depts = testService.getAllDept();
+        Result succ = Result.succ(depts);
+        return succ;
+    }
+
+    @RequestMapping("/delete")
+    public Result deleteEmpByEmpID(Emp emp)
+    {
+        testService.deleteEmpByEmpID(emp.getEmpID());
+        Result succ = Result.succ(null);
+        return succ;
+    }
+
+    @RequestMapping("/update")
+    public Result updateEmp(Emp emp)
+    {
+        testService.updateEmp(emp);
+        Result succ = Result.succ(null);
+        return succ;
+    }
+
+
+}
